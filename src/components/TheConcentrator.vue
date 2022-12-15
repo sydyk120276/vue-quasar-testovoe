@@ -6,17 +6,15 @@
         </div>
         <div class="pb-[20px] flex justify-between">
           <TheConcentratorInput />
-          <TheConcentratorButton />
         </div>
       </div>
 </template>
 <script>
 import TheConcentratorInput from './UI/TheConcentratorInput.vue'
-import TheConcentratorButton from './UI/TheConcentratorButton.vue'
+
 export default {
   components: {
     TheConcentratorInput,
-    TheConcentratorButton,
   }
 }
 </script>

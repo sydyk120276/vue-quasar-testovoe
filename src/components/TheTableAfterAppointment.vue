@@ -25,7 +25,7 @@
                 <th class="border">DD.MM.YYYY</th>
                 <th class="border">1,2,3</th>
                 <th class="border">3</th>
-                <th class="border pl-[7px] "><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="8px" viewBox="0 0 24 24" width="8px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><polygon points="15,2 11.5,2 10.5,1 5.5,1 4.5,2 1,2 1,4 15,4"/><path d="M16,9c-0.7,0-1.37,0.1-2,0.29V5H2v12c0,1.1,0.9,2,2,2h5.68c1.12,2.36,3.53,4,6.32,4c3.87,0,7-3.13,7-7 C23,12.13,19.87,9,16,9z M9,16c0,0.34,0.03,0.67,0.08,1H4V7h8v3.26C10.19,11.53,9,13.62,9,16z M16,21c-2.76,0-5-2.24-5-5 s2.24-5,5-5s5,2.24,5,5S18.76,21,16,21z"/><polygon points="16.5,12 15,12 15,17 18.6,19.1 19.4,17.9 16.5,16.2"/></g></g></svg></th>
+                <th class="border pl-[7px] "><svg xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 0 24 24" width="12px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"/></svg></th>
               </tr>
               <tr class="text-[6px] font-semibold">
                 <th class="border">Лекарственный препарат №2</th>
@@ -35,7 +35,7 @@
                 <th class="border">DD.MM.YYYY</th>
                 <th class="border">5</th>
                 <th class="border">1</th>
-                <th class="border pl-[7px]"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="8px" viewBox="0 0 24 24" width="8px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><polygon points="15,2 11.5,2 10.5,1 5.5,1 4.5,2 1,2 1,4 15,4"/><path d="M16,9c-0.7,0-1.37,0.1-2,0.29V5H2v12c0,1.1,0.9,2,2,2h5.68c1.12,2.36,3.53,4,6.32,4c3.87,0,7-3.13,7-7 C23,12.13,19.87,9,16,9z M9,16c0,0.34,0.03,0.67,0.08,1H4V7h8v3.26C10.19,11.53,9,13.62,9,16z M16,21c-2.76,0-5-2.24-5-5 s2.24-5,5-5s5,2.24,5,5S18.76,21,16,21z"/><polygon points="16.5,12 15,12 15,17 18.6,19.1 19.4,17.9 16.5,16.2"/></g></g></svg></th>
+                <th class="border pl-[7px]"><svg xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 0 24 24" width="12px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"/></svg></th>
               </tr>
               <tr class="text-[6px] font-semibold">
                 <th class="border">Лекарственный препарат №3</th>
@@ -45,7 +45,7 @@
                 <th class="border">DD.MM.YYYY</th>
                 <th class="border">6, 7</th>
                 <th class="border">2</th>
-                <th class=" border pl-[7px]"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="8px" viewBox="0 0 24 24" width="8px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><polygon points="15,2 11.5,2 10.5,1 5.5,1 4.5,2 1,2 1,4 15,4"/><path d="M16,9c-0.7,0-1.37,0.1-2,0.29V5H2v12c0,1.1,0.9,2,2,2h5.68c1.12,2.36,3.53,4,6.32,4c3.87,0,7-3.13,7-7 C23,12.13,19.87,9,16,9z M9,16c0,0.34,0.03,0.67,0.08,1H4V7h8v3.26C10.19,11.53,9,13.62,9,16z M16,21c-2.76,0-5-2.24-5-5 s2.24-5,5-5s5,2.24,5,5S18.76,21,16,21z"/><polygon points="16.5,12 15,12 15,17 18.6,19.1 19.4,17.9 16.5,16.2"/></g></g></svg></th>
+                <th class=" border pl-[7px]"><svg xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 0 24 24" width="12px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"/></svg></th>
               </tr>
             </tbody>
           </table>

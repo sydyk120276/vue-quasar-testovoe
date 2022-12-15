@@ -17,11 +17,6 @@
       <div class="pb-[20px] flex justify-between w-[325px] items-end pb-[10px]">
         <TheTypeOfInjectionBicorbanate />
         <TheTypeOfInjectionAnticoagulation />
-                <button
-          class="border border-gray-500 w-[110px] text-[8px] h-[20px] justify-center flex items-center mt-[30px]"
-        >
-          Сформировать сеанс
-        </button>
       </div>
 </template>
 <script>
@@ -30,11 +25,16 @@ import TheTypeOfInjectionNeedlesInput from './UI/TheTypeOfInjectionNeedlesInput.
 import TheTypeOfInjectionCatheterInput from './UI/TheTypeOfInjectionCatheterInput.vue'
 import TheTypeOfInjectionBicorbanate from './UI/TheTypeOfInjectionBicorbanate.vue'
 import TheTypeOfInjectionAnticoagulation from './UI/TheTypeOfInjectionAnticoagulation.vue'
+
 export default {
     data() {
     return {
       nameButtons: ['Игла', 'Катетер'],
+
     };
+  },
+    methods: {
+
   },
   components: {
     TheTypeOfInjectionButton,
