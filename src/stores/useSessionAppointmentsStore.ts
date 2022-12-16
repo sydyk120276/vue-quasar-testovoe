@@ -2,6 +2,20 @@ import { defineStore } from 'pinia';
 
 export const useSessionAppointmentsStore = defineStore('session-appointments', {
   state: () => ({
+    dializator: '',
+    concentrator: '',
+    concentratorValue: '',
+    needles: '',
+    typeNeedles: '',
+    catheter: '',
+    typeCatheter: '',
+    bicorbanat: '',
+    typeBicorbanat: '',
+    anticoagulation: '',
+    voluemAnticoagulation: '',
+    weigth: '',
+
+
     dialogVisible: false,
     valueInput: '',
     searchValue: '',
@@ -191,9 +205,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputDializator(event) {
       this.valueInputDializator = event.target.value;
     },
-    handleInputWeights(event) {
-      this.valueDializator = event.target.value;
-    },
     onClickDializator(item) {
       this.valueOnClickDializator = item;
       this.dialogVisibleDializator = false;
@@ -207,7 +218,7 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputConcentrator(event) {
       this.valueInputConcentrator = event.target.value;
     },
-    handleInputWeights(event) {
+    handleInputConcentratorWeights(event) {
       this.valueConcentrator = event.target.value;
     },
     onClickConcentrator(item) {
@@ -329,12 +340,12 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputBicorbanate(event) {
       this.valueInputBicorbanate = event.target.value;
     },
-    handleInputWeights(event) {
-      this.valueWeights = event.target.value;
-    },
     onClickBicorbanate(item) {
       this.valueOnClickBicorbanate = item;
       this.dialogVisibleBicorbanate = false;
+    },
+    handleInputAliveWeights(event) {
+      this.valueWeights = event.target.value;
     },
     showDialogAnticoagulation() {
       this.dialogVisibleAnticoagulation = true;
@@ -345,12 +356,29 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputAnticoagulation(event) {
       this.valueInputAnticoagulation = event.target.value;
     },
-    handleInputWeights(event) {
+    handleInputAnticoagulationVolume(event) {
       this.valueAnticoagulation = event.target.value;
+    },
+    handleInputAnticoagulation(event) {
+      this.valueInputAnticoagulation = event.target.value;
     },
     onClickAnticoagulation(item) {
       this.valueOnClickAnticoagulation = item;
       this.dialogVisibleAnticoagulation = false;
     },
+    formButton() {
+    this.dializator = this.valueOnClickDializator,
+    this.concentrator = this.valueOnClickConcentrator,
+    this.concentratorValue = this.valueConcentrator,
+    this.needles = this.valueOnClick,
+    this.typeNeedles = this.valueOnClickList,
+    this.catheter = this.valueOnClickCatheter,
+    this.typeCatheter = this.valueOnClickCatheterType,
+    this.bicorbanat = this.valueInputBicorbanate,
+    this.typeBicorbanat = this.valueOnClickBicorbanate,
+    this.anticoagulation = this.valueOnClickAnticoagulation,
+    this.voluemAnticoagulation = this.valueAnticoagulation,
+    this.weigth = this.valueWeights
+    }
   },
 });

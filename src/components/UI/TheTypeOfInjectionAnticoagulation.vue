@@ -19,7 +19,7 @@
             class="border border-gray-300 w-[50px] text-[8px] h-[20px] justify-center flex items-center outline-none"
             placeholder="XXX ед"
             :value="sessionAppointmentsStore.valueAnticoagulation"
-            @input="sessionAppointmentsStore.handleInputAnticoagulation"
+            @input="sessionAppointmentsStore.handleInputAnticoagulationVolume"
           />
           </div>
           <MyAnticoagulationDialog />

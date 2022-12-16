@@ -20,6 +20,7 @@
       </div>
         <button type="submit"
           class="border border-gray-500 w-[110px] text-[8px] h-[20px] justify-center flex items-center mt-[30px] mb-[30px]"
+          @click="sessionAppointmentsStore.formButton"
         >
           Сформировать сеанс
         </button>
@@ -30,11 +31,14 @@ import TheTypeOfInjectionNeedlesInput from './UI/TheTypeOfInjectionNeedlesInput.
 import TheTypeOfInjectionCatheterInput from './UI/TheTypeOfInjectionCatheterInput.vue'
 import TheTypeOfInjectionBicorbanate from './UI/TheTypeOfInjectionBicorbanate.vue'
 import TheTypeOfInjectionAnticoagulation from './UI/TheTypeOfInjectionAnticoagulation.vue'
+import { useSessionAppointmentsStore } from '../stores/useSessionAppointmentsStore'
 
 export default {
     data() {
+        const sessionAppointmentsStore = useSessionAppointmentsStore()
     return {
       nameButtons: ['Игла', 'Катетер'],
+      sessionAppointmentsStore
 
     };
   },

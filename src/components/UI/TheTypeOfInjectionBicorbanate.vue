@@ -22,7 +22,7 @@
             class="border border-gray-300 w-[50px] text-[8px] h-[20px] justify-center flex items-center outline-none"
             placeholder="XXX кг"
             :value="sessionAppointmentsStore.valueWeights"
-            @input="sessionAppointmentsStore.handleInputWeights"
+            @input="sessionAppointmentsStore.handleInputAliveWeights"
           />
           </div>
           <MyBicorbanateDialog />

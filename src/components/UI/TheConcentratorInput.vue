@@ -14,7 +14,7 @@
       class="border border-gray-300 w-[50px] text-[8px] h-[20px] justify-center flex items-center outline-none"
       placeholder="XXX л."
       :value="sessionAppointmentsStore.valueConcentrator"
-      @input="sessionAppointmentsStore.handleInputWeights"
+      @input="sessionAppointmentsStore.handleInputConcentratorWeights"
     />
   <MyConcentratorDialog />
 </template>
