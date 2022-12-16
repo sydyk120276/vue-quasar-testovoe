@@ -6,93 +6,69 @@
             >Лекарственный препарат</span
           >
           <div class="w-[235px] flex justify-between pb-[7px]">
-            <button
-              class="border border-gray-300 text-[8px] font-semibold w-[205px] h-[20px] flex items-center justify-start"
-            >
-              Спр."Препараты"
-            </button>
+            <input type="text"
+              class="border border-gray-300 text-[8px] font-semibold w-[205px] h-[20px] flex items-center justify-start outline-none"
+              placeholder="Спр.Препараты"
+              :value="sessionHomeTreatmentStore.valueOnClickMedications"
+            />
             <button
               class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                enable-background="new 0 0 24 24"
-                height="10px"
-                viewBox="0 0 24 24"
-                width="10px"
-                fill="#000000"
-              >
-                <path d="M0,0h24v24H0V0z" fill="none" />
-                <path
-                  d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z"
-                />
-              </svg>
+              <BaseIcon @click="sessionHomeTreatmentStore.showDialogMedications" />
             </button>
           </div>
         </div>
-        <div class="w-[235px] flex justify-between pb-[20px]">
-          <div class="w-[100px] flex justify-between pb-[7px]">
+        <div class="w-[245px] flex justify-between pb-[20px]">
+          <div class="w-[105px] flex justify-between pb-[7px]">
             <span class="text-[8px] font-semibold pb-[7px]">Путь приёма</span>
+            <input type="text"
+              class="border border-gray-300 text-[8px] font-semibold w-[75px] h-[20px] flex items-center justify-start outline-none"
+              placeholder="Спр.Путь приёма"
+              :value="sessionHomeTreatmentStore.valueOnClickReceivingPath"
+              @input="sessionHomeTreatmentStore.handleInputReceivingPath"
+            />
             <button
-              class="border border-gray-300 text-[8px] font-semibold w-[205px] h-[20px] flex items-center justify-start"
+              class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
             >
-              Спр."Путь приёма"
+              <BaseIcon @click="sessionHomeTreatmentStore.showDialogReceivingPath" />
             </button>
           </div>
-          <div class="w-[130px] flex flex-col">
+          <div class="w-[135px] flex flex-col">
             <span class="text-[8px] font-semibold pb-[7px]">Дозировка</span>
-            <div class="w-[125px] flex justify-between pb-[7px]">
-              <button
-                class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start"
-              >
-                Спр."Дозы препаратов"
-              </button>
+            <div class="w-[123px] flex justify-between pb-[7px]">
+              <div class="relative">
+              <input type="text"
+                class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start outline-none"
+                placeholder="Спр.Дозы препаратов"
+                @input="sessionHomeTreatmentStore.handleInputDoses"
+              />
+              <span class="absolute text-[7px] top-[5px] right-[10px] font-bold ">{{ sessionHomeTreatmentStore.valueOnClickDoses }}</span>
+              </div>
               <button
                 class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  enable-background="new 0 0 24 24"
-                  height="10px"
-                  viewBox="0 0 24 24"
-                  width="10px"
-                  fill="#000000"
-                >
-                  <path d="M0,0h24v24H0V0z" fill="none" />
-                  <path
-                    d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z"
-                  />
-                </svg>
+                <BaseIcon @click="sessionHomeTreatmentStore.showDialogDoses" />
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex w-[321px] justify-between pb-[10px]">
+            <div class="flex w-[321px] justify-between pb-[10px]">
           <div class="w-[130px] flex flex-col">
             <span class="text-[8px] font-semibold pb-[10px]">Кратность приёма</span>
-            <div class="w-[127px] flex justify-between">
-              <button
-                class="border border-gray-300 text-[8px] font-semibold w-[100px] h-[20px] flex items-center justify-start"
-              >
-                Спр."Кратность приёма"
-              </button>
+            <div class="w-[123px] flex justify-between pb-[7px]">
+              <div class="relative">
+              <input type="text"
+                class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start outline-none"
+                placeholder="Спр.Кр-ть приёма"
+                @input="sessionHomeTreatmentStore.handleInputDoses"
+              />
+              <span class="absolute text-[7px] top-[5px] right-[10px] font-bold ">{{ sessionHomeTreatmentStore.valueOnClickDoses }}</span>
+              </div>
               <button
                 class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  enable-background="new 0 0 24 24"
-                  height="10px"
-                  viewBox="0 0 24 24"
-                  width="10px"
-                  fill="#000000"
-                >
-                  <path d="M0,0h24v24H0V0z" fill="none" />
-                  <path
-                    d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z"
-                  />
-                </svg>
+                <BaseIcon @click="sessionHomeTreatmentStore.showDialogDoses" />
               </button>
             </div>
           </div>
@@ -118,10 +94,29 @@
           <span class="text-[8px] font-semibold ">2 раза в день утром и вечером с 01.01.2022 по 10.01.2022 10 дней</span>
         </div>
       </div>
+      <MyDialogHomeMedications />
+      <MyHomeReceivingPathDialog  />
+      <MyHomeDosesDialog  />
 </template>
 <script>
+import MyDialogHomeMedications from './UI/MyDialogHomeMedications.vue'
+import MyHomeReceivingPathDialog  from './UI/MyHomeReceivingPathDialog.vue'
+import MyHomeDosesDialog  from './UI/MyHomeDosesDialog.vue'
+import BaseIcon from './UI/BaseIcon.vue'
+import { useSessionHomeTreatmentStore } from '../stores/useSessionHomeTreatmentStore'
 export default {
-
+    data() {
+      const sessionHomeTreatmentStore = useSessionHomeTreatmentStore()
+    return {
+       sessionHomeTreatmentStore,
+    }
+  },
+  components: {
+    MyDialogHomeMedications,
+    BaseIcon,
+    MyHomeReceivingPathDialog,
+    MyHomeDosesDialog,
+  }
 }
 </script>
 <style lang="">
