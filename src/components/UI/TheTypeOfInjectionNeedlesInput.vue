@@ -3,22 +3,22 @@
           <input type="text"
             class="border border-gray-300 text-[8px] font-semibold w-[85px] h-[20px] flex items-center outline-none"
             placeholder="Спр.Иглы"
-            :value="storePania.valueOnClick"
+            :value="sessionAppointmentsStore.valueOnClick"
           />
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
           >
-            <BaseIcon @click="storePania.showDialog" />
+            <BaseIcon @click="sessionAppointmentsStore.showDialog" />
           </button>
           <input type="text"
             class="border border-gray-300 text-[8px] font-semibold w-[85px] h-[20px] flex items-center outline-none"
             placeholder="Спр.Тип иглы"
-            :value="needlessListStore.valueOnClickList"
+            :value="sessionAppointmentsStore.valueOnClickList"
           />
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
           >
-            <BaseIcon @click="needlessListStore.showDialogNeedlessList" />
+            <BaseIcon @click="sessionAppointmentsStore.showDialogNeedlessList" />
           </button>
         </div>
     <MyDialog  />
@@ -28,17 +28,14 @@
 import BaseIcon from './BaseIcon.vue'
 import MyDialog from './MyDialog.vue'
 import MyDialogNeedlesList from './MyDialogNeedlesList.vue'
-import { useCounterStore } from '../../stores/useCounterStore'
-import { useNeedlessListStore } from '../../stores/useNeedlessListStore'
+import { useSessionAppointmentsStore } from '../../stores/useSessionAppointmentsStore'
 
 export default {
 
   data() {
-      const storePania = useCounterStore()
-      const needlessListStore = useNeedlessListStore()
+      const sessionAppointmentsStore = useSessionAppointmentsStore()
     return {
-       storePania,
-       needlessListStore,
+       sessionAppointmentsStore,
     }
   },
 

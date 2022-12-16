@@ -1,8 +1,8 @@
 <template lang="">
   <div
     class="top-0 bottom-0 left-0 right-0 bg-black/50 fixed flex z-30"
-    v-show="needlessListStore.dialogVisibleList"
-    @click="needlessListStore.closeShowDialogNeedlessList"
+    v-show="sessionAppointmentsStore.dialogVisibleList"
+    @click="sessionAppointmentsStore.closeShowDialogNeedlessList"
   >
     <div
       class="m-auto bg-white rounded-[2px] min-w-[275px] p-[20px]"
@@ -12,7 +12,7 @@
         <span>Иглы</span>
         <button
           class="border border-gray-300 w-[60px] text-[8px] h-[20px] justify-center flex items-center text-gray-500 my-[15px]"
-          @click="needlessListStore.closeShowDialogNeedlessList"
+          @click="sessionAppointmentsStore.closeShowDialogNeedlessList"
         >
           Закрыть
         </button>
@@ -20,8 +20,8 @@
       <div class="flex flex-col">
         <div class="w-[244px] flex justify-between pb-[10px]">
           <input
-            :value="needlessListStore.searchValueList"
-            @change="needlessListStore.needlessFilterNeedlessList"
+            :value="sessionAppointmentsStore.searchValueList"
+            @change="sessionAppointmentsStore.needlessFilterNeedlessList"
             type="text"
             class="outline-none border border-gray-300 text-[8px] font-semibold w-[215px] h-[20px] flex items-center"
             placeholder="Поиск позиции по первым символам "
@@ -34,43 +34,43 @@
         </div>
         <div class="w-[244px] flex justify-between pb-[10px]">
           <input
-            :value="needlessListStore.valueInputList"
-            @input="needlessListStore.handleInputNeedlessList"
-            @keypress.enter="needlessListStore.addRecordNeedlessList"
+            :value="sessionAppointmentsStore.valueInputList"
+            @input="sessionAppointmentsStore.handleInputNeedlessList"
+            @keypress.enter="sessionAppointmentsStore.addRecordNeedlessList"
             type="text"
             class="outline-none border border-gray-300 text-[8px] font-semibold w-[215px] h-[20px] flex items-center"
             placeholder="Добавить новую запись"
           />
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
-            @click="needlessListStore.addRecordNeedlessList"
+            @click="sessionAppointmentsStore.addRecordNeedlessList"
           >
           <RecordIcon />
           </button>
         </div>
-        <div v-for="(mask) in needlessListStore.needToListList" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
+        <div v-for="(mask) in sessionAppointmentsStore.needToListList" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
           <span class="text-[8px] font-semibold flex items-center">{{ mask.title }}</span>
           <button class="absolute right-[25px] top-[3px] "
-          @click="needlessListStore.removeMaskNeedlessList(index)">
+          @click="sessionAppointmentsStore.removeMaskNeedlessList(index)">
            <DeleteIcon />
           </button>
           <button
             class="w-[23px] h-[20px] justify-center flex items-center border-l"
-            @click="needlessListStore.onClickNeedlessList(mask.title)"
+            @click="sessionAppointmentsStore.onClickNeedlessList(mask.title)"
           >
             <StoreValueIcon />
           </button>
         </div>
-        <div v-for="(mask) in needlessListStore.searchNeedlesList" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
+        <div v-for="(mask) in sessionAppointmentsStore.searchNeedlesList" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
           <span class="text-[8px] font-semibold flex items-center">{{ mask.title }}</span>
           <button class="absolute right-[25px] top-[3px] "
-          @click="needlessListStore.removeNeedlessList(index)"
+          @click="sessionAppointmentsStore.removeNeedlessList(index)"
           >
           <DeleteIcon />
           </button>
           <button
             class="w-[23px] h-[20px] justify-center flex items-center border-l"
-            @click="needlessListStore.onClickNeedlessList(mask.title)"
+            @click="sessionAppointmentsStore.onClickNeedlessList(mask.title)"
           >
             <StoreValueIcon />
           </button>
@@ -80,7 +80,7 @@
   </div>
 </template>
 <script>
-import { useNeedlessListStore } from '../../stores/useNeedlessListStore'
+import { useSessionAppointmentsStore } from '../../stores/useSessionAppointmentsStore'
 import DeleteIcon from './DeleteIcon.vue'
 import StoreValueIcon from './StoreValueIcon.vue'
 import RecordIcon from './RecordIcon.vue'
@@ -89,9 +89,9 @@ import SearchIcon from './SearchIcon.vue'
 export default {
 
   data() {
-      const needlessListStore = useNeedlessListStore()
+      const sessionAppointmentsStore = useSessionAppointmentsStore()
     return {
-      needlessListStore,
+      sessionAppointmentsStore,
     }
   },
   components: {

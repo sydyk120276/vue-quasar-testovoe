@@ -3,22 +3,22 @@
           <input type="text"
             class="border border-gray-300 text-[8px] font-semibold w-[85px] h-[20px] flex items-center outline-none"
             placeholder="Спр.Катетеры"
-            :value="catheterStore.valueOnClickCatheter"
+            :value="sessionAppointmentsStore.valueOnClickCatheter"
           />
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
           >
-            <BaseIcon @click="catheterStore.showDialogCatheter" />
+            <BaseIcon @click="sessionAppointmentsStore.showDialogCatheter" />
           </button>
           <input type="text"
             class="border border-gray-300 text-[8px] font-semibold w-[85px] h-[20px] flex items-center outline-none"
             placeholder="Спр.Тип Катетеров"
-            :value="catheterStoreType.valueOnClickCatheterType"
+            :value="sessionAppointmentsStore.valueOnClickCatheterType"
           />
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
           >
-            <BaseIcon @click="catheterStoreType.showDialogCatheterType" />
+            <BaseIcon @click="sessionAppointmentsStore.showDialogCatheterType" />
           </button>
         </div>
         <MyCatheterDialog />
@@ -28,16 +28,13 @@
 import BaseIcon from './BaseIcon.vue'
 import MyCatheterDialog from '../UI/MyCatheterDialog.vue'
 import MyCatheterTypeDialog from '../UI/MyCatheterTypeDialog.vue'
-import { useCatheterStore } from '../../stores/useCatheterStore'
-import { useCatheterTypeStore } from '../../stores/useCatheterTypeStore'
+import { useSessionAppointmentsStore } from '../../stores/useSessionAppointmentsStore'
 
 export default {
     data() {
-      const catheterStore = useCatheterStore()
-      const catheterStoreType = useCatheterTypeStore()
+      const sessionAppointmentsStore = useSessionAppointmentsStore()
     return {
-       catheterStore,
-       catheterStoreType
+       sessionAppointmentsStore,
     }
   },
   components: {
