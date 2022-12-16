@@ -5,19 +5,11 @@
       <span class="text-[11px] font-semibold pb-[20px]"
         >Назначения сеанса гемодеализа</span
       >
-      <form>
       <TheAppointment />
       <TheDializator />
       <TheConcentrator />
       <TheTypeOfInjection />
-        <button type="submit"
-          class="border border-gray-500 w-[110px] text-[8px] h-[20px] justify-center flex items-center mt-[30px]"
-          @click="formSession"
-        >
-          Сформировать сеанс
-        </button>
       <TheTableAppointment />
-      </form>
       <TheAfterAppointment />
       <TheNumberOfSession />
       <TheTableAfterAppointment />

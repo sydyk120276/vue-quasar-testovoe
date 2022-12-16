@@ -18,6 +18,11 @@
         <TheTypeOfInjectionBicorbanate />
         <TheTypeOfInjectionAnticoagulation />
       </div>
+        <button type="submit"
+          class="border border-gray-500 w-[110px] text-[8px] h-[20px] justify-center flex items-center mt-[30px] mb-[30px]"
+        >
+          Сформировать сеанс
+        </button>
 </template>
 <script>
 import TheTypeOfInjectionButton from './UI/TheTypeOfInjectionButton.vue'
