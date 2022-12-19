@@ -8,12 +8,11 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
     dosesValue: '',
     startDate: '',
     endDate: '',
-    typeCatheter: '',
-    bicorbanat: '',
-    typeBicorbanat: '',
-    anticoagulation: '',
-    voluemAnticoagulation: '',
-    weigth: '',
+    multiplicity: '',
+    valueStartDay: 0,
+    valueEndDay: 0,
+    countDay: 0,
+    countDayResult: 0,
 
     dialogVisibleMedications: false,
     valueInputMedications: '',
@@ -72,13 +71,36 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
         id: 3,
       },
     ],
+    dialogVisibleMultiplicity: false,
+    valueInputMultiplicity: '',
+    valueOnClickMultiplicity: '',
+    valueMultiplicity: '',
+    typeMultiplicity: [
+      {
+        title: '1 раз в день',
+        id: 1,
+      },
+      {
+        title: '2 раз в день',
+        id: 2,
+      },
+      {
+        title: '3 раз в день',
+        id: 3,
+      },
+    ],
 
     valueInputStartDate: '',
     valueInputEndDate: '',
   }),
 
-  getters: {},
-
+  getters: {
+    valueStartDay: (state) =>
+      Number(state.valueInputStartDate.split('-')[2]),
+    valueEndDay: (state) =>
+      Number(state.valueInputEndDate.split('-')[2]),
+    countDay: (state) => state.valueEndDay - state.valueStartDay,
+  },
   actions: {
     showDialogMedications() {
       this.dialogVisibleMedications = true;
@@ -143,6 +165,22 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
       this.valueOnClickDoses = item;
       this.dialogVisibleDoses = false;
     },
+    showDialogMultiplicity() {
+      this.dialogVisibleMultiplicity = true;
+    },
+    closeShowDialogMultiplicity() {
+      this.dialogVisibleMultiplicity = false;
+    },
+    handleInputMultiplicity(event) {
+      this.valueInputMultiplicity = event.target.value;
+    },
+    handleInputMultiplicityWeights(event) {
+      this.valueMultiplicity = event.target.value;
+    },
+    onClickMultiplicity(item) {
+      this.valueOnClickMultiplicity = item;
+      this.dialogVisibleMultiplicity = false;
+    },
     handleInputStartDate(event) {
       this.valueInputStartDate = event.target.value;
     },
@@ -150,13 +188,15 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
       this.valueInputEndDate = event.target.value;
     },
 
-    formButtonAfterSession() {
+    formButtonHomeSession() {
       (this.medications = this.valueOnClickMedications),
         (this.receivingPath = this.valueOnClickReceivingPath),
         (this.doses = this.valueInputDoses),
         (this.dosesValue = this.valueOnClickDoses),
+        (this.multiplicity = this.valueOnClickMultiplicity),
         (this.startDate = this.valueInputStartDate),
         (this.endDate = this.valueInputEndDate);
+        this.countDayResult = this.countDay;
     },
   },
 });

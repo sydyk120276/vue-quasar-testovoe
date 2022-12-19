@@ -16,6 +16,10 @@ export const useSessionAfterAppointmentsStore = defineStore(
       anticoagulation: '',
       voluemAnticoagulation: '',
       weigth: '',
+      valueStartDay: 0,
+      valueEndDay: 0,
+      countDay: 0,
+      countDayResult: 0,
 
       dialogVisibleMedications: false,
       valueInputMedications: '',
@@ -79,7 +83,13 @@ export const useSessionAfterAppointmentsStore = defineStore(
       valueInputEndDate: '',
     }),
 
-    getters: {},
+    getters: {
+    valueStartDay: (state) =>
+      Number(state.valueInputStartDate.split('-')[2]),
+    valueEndDay: (state) =>
+      Number(state.valueInputEndDate.split('-')[2]),
+    countDay: (state) => state.valueEndDay - state.valueStartDay,
+    },
 
     actions: {
       showDialogMedications() {
@@ -158,7 +168,8 @@ export const useSessionAfterAppointmentsStore = defineStore(
           (this.doses = this.valueInputDoses),
           (this.dosesValue = this.valueOnClickDoses),
           (this.startDate = this.valueInputStartDate),
-          (this.endDate = this.valueInputEndDate)
+          (this.endDate = this.valueInputEndDate),
+          (this.countDayResult = this.countDay)
       },
     },
   }

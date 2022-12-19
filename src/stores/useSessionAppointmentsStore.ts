@@ -15,7 +15,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     voluemAnticoagulation: '',
     weigth: '',
 
-
     dialogVisible: false,
     valueInput: '',
     searchValue: '',
@@ -157,6 +156,9 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
         id: 2,
       },
     ],
+
+    valueInputRecommendations: '',
+    arrayRecommendations: [],
   }),
 
   getters: {},
@@ -366,19 +368,32 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
       this.valueOnClickAnticoagulation = item;
       this.dialogVisibleAnticoagulation = false;
     },
+    handleInputRecommendationst(event) {
+      this.valueInputRecommendations = event.target.value;
+    },
+    addRecordRecommendationst() {
+      if (this.valueInputRecommendations === '') {
+        return;
+      }
+      this.arrayRecommendations.push({
+        title: this.valueInputRecommendations,
+        id: Math.random(),
+      });
+      this.valueInputRecommendations = '';
+    },
     formButton() {
-    this.dializator = this.valueOnClickDializator,
-    this.concentrator = this.valueOnClickConcentrator,
-    this.concentratorValue = this.valueConcentrator,
-    this.needles = this.valueOnClick,
-    this.typeNeedles = this.valueOnClickList,
-    this.catheter = this.valueOnClickCatheter,
-    this.typeCatheter = this.valueOnClickCatheterType,
-    this.bicorbanat = this.valueInputBicorbanate,
-    this.typeBicorbanat = this.valueOnClickBicorbanate,
-    this.anticoagulation = this.valueOnClickAnticoagulation,
-    this.voluemAnticoagulation = this.valueAnticoagulation,
-    this.weigth = this.valueWeights
-    }
+      (this.dializator = this.valueOnClickDializator),
+        (this.concentrator = this.valueOnClickConcentrator),
+        (this.concentratorValue = this.valueConcentrator),
+        (this.needles = this.valueOnClick),
+        (this.typeNeedles = this.valueOnClickList),
+        (this.catheter = this.valueOnClickCatheter),
+        (this.typeCatheter = this.valueOnClickCatheterType),
+        (this.bicorbanat = this.valueInputBicorbanate),
+        (this.typeBicorbanat = this.valueOnClickBicorbanate),
+        (this.anticoagulation = this.valueOnClickAnticoagulation),
+        (this.voluemAnticoagulation = this.valueAnticoagulation),
+        (this.weigth = this.valueWeights);
+    },
   },
 });
