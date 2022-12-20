@@ -40,18 +40,13 @@
       <div class="w-[135px] flex flex-col">
         <span class="text-[8px] font-semibold pb-[7px]">Дозировка</span>
         <div class="w-[123px] flex justify-between pb-[7px]">
-          <div class="relative">
             <input
               type="text"
-              class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start outline-none"
+              class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start outline-none pl-[15px] "
               placeholder="Спр.Дозы препаратов"
               @input="sessionHomeTreatmentStore.handleInputDoses"
+              :value="sessionHomeTreatmentStore.valueOnClickDoses"
             />
-            <span
-              class="absolute text-[7px] top-[5px] right-[10px] font-bold"
-              >{{ sessionHomeTreatmentStore.valueOnClickDoses }}</span
-            >
-          </div>
           <button
             class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
           >
@@ -111,17 +106,18 @@
     </button>
     <span class="text-[8px] font-semibold">Лечение на дому</span>
     <div
-      class="w-[330px] h-[105px] border mt-[10px] pl-[10px] flex flex-col pt-[15px] gap-[15px]"
+      class=" w-[330px] h-[105px] border mt-[10px] pl-[10px] flex flex-col pt-[15px] gap-[15px]"
+      v-show="sessionHomeTreatmentStore.dialogVisibleRecipe"
     >
       <span class="text-[8px] font-semibold"
-        >Лекарственный препарат Перорально 5 мг
+        >
         {{ sessionHomeTreatmentStore.medications }}
         {{ sessionHomeTreatmentStore.receivingPath }}
         {{ sessionHomeTreatmentStore.doses }}
         {{ sessionHomeTreatmentStore.dosesValue }}</span
       >
       <span class="text-[8px] font-semibold"
-        >2 раза в день утром и вечером с 01.01.2022 по 10.01.2022 10 дней
+        >
         {{ sessionHomeTreatmentStore.multiplicity }} утром и вечером
          {{ sessionHomeTreatmentStore.startDate }} по
          {{ sessionHomeTreatmentStore.endDate }}

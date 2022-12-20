@@ -84,11 +84,16 @@ export const useSessionAfterAppointmentsStore = defineStore(
     }),
 
     getters: {
-    valueStartDay: (state) =>
-      Number(state.valueInputStartDate.split('-')[2]),
-    valueEndDay: (state) =>
-      Number(state.valueInputEndDate.split('-')[2]),
-    countDay: (state) => state.valueEndDay - state.valueStartDay,
+      valueStartDay: (state) => Number(state.valueInputStartDate.split('-')[2]),
+      valueEndDay: (state) => Number(state.valueInputEndDate.split('-')[2]),
+      countDay: (state) => state.valueEndDay - state.valueStartDay,
+      filterMedications() {
+        this.searchArrayMedications = this.searchMedications.filter((item) =>
+          item.title
+            .toLowerCase()
+            .includes(this.searchValueMedications.toLowerCase())
+        );
+      },
     },
 
     actions: {
@@ -100,6 +105,9 @@ export const useSessionAfterAppointmentsStore = defineStore(
       },
       handleInputMedications(event) {
         this.valueInputMedications = event.target.value;
+      },
+      handleInputSearchMedications(event) {
+        this.searchValueMedications = event.target.value;
       },
       addRecordMedications() {
         if (this.valueInputMedications === '') {
@@ -115,11 +123,7 @@ export const useSessionAfterAppointmentsStore = defineStore(
         this.valueOnClickMedications = item;
         this.dialogVisibleMedications = false;
       },
-      filterMedications() {
-        this.searchArray = this.searchNeedles.filter((item) =>
-          item.title.toLowerCase().includes(this.searchValue.toLowerCase())
-        );
-      },
+
       removeMaskMedications(index) {
         this.needToListMedications.splice(index, 1);
       },
@@ -169,7 +173,7 @@ export const useSessionAfterAppointmentsStore = defineStore(
           (this.dosesValue = this.valueOnClickDoses),
           (this.startDate = this.valueInputStartDate),
           (this.endDate = this.valueInputEndDate),
-          (this.countDayResult = this.countDay)
+          (this.countDayResult = this.countDay);
       },
     },
   }

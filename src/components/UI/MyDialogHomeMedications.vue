@@ -21,7 +21,7 @@
         <div class="w-[244px] flex justify-between pb-[10px]">
           <input
             :value="sessionHomeTreatmentStore.searchValueMedications"
-            @change="sessionHomeTreatmentStore.filterMedications"
+            @input="sessionHomeTreatmentStore.handleInputSearchMedications"
             type="text"
             class="outline-none border border-gray-300 text-[8px] font-semibold w-[215px] h-[20px] flex items-center outline-none"
             placeholder="Поиск позиции по первым символам "
@@ -61,7 +61,7 @@
             <StoreValueIcon />
           </button>
         </div>
-        <div v-for="(mask) in sessionHomeTreatmentStore.searchMedications" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
+        <div v-show="sessionHomeTreatmentStore.searchValueMedications" v-for="(mask) in sessionHomeTreatmentStore.searchArrayMedications" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
           <span class="text-[8px] font-semibold flex items-center">{{ mask.title }}</span>
           <button class="absolute right-[25px] top-[3px] "
           @click="sessionHomeTreatmentStore.removeMedications(index)"

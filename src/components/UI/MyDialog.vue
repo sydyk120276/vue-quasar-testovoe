@@ -21,7 +21,7 @@
         <div class="w-[244px] flex justify-between pb-[10px]">
           <input
             :value="sessionAppointmentsStore.searchValue"
-            @change="sessionAppointmentsStore.needlessFilter"
+            @input="sessionAppointmentsStore.handleSearchInput"
             type="text"
             class="outline-none border border-gray-300 text-[8px] font-semibold w-[215px] h-[20px] flex items-center"
             placeholder="Поиск позиции по первым символам "
@@ -61,7 +61,7 @@
           <StoreValueIcon />
           </button>
         </div>
-        <div v-for="(mask) in sessionAppointmentsStore.searchNeedles" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
+        <div v-show="sessionAppointmentsStore.searchValue" v-for="(mask) in sessionAppointmentsStore.searchArray" :key="mask.id" class="w-[244px] flex justify-between relative border border-gray-300">
           <span class="text-[8px] font-semibold flex items-center">{{ mask.title }}</span>
           <button class="absolute right-[25px] top-[3px] "
           @click="sessionAppointmentsStore.removeMaskNeedless(index)"

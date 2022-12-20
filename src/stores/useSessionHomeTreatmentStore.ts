@@ -92,14 +92,21 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
 
     valueInputStartDate: '',
     valueInputEndDate: '',
+
+    dialogVisibleRecipe: false,
   }),
 
   getters: {
-    valueStartDay: (state) =>
-      Number(state.valueInputStartDate.split('-')[2]),
-    valueEndDay: (state) =>
-      Number(state.valueInputEndDate.split('-')[2]),
+    valueStartDay: (state) => Number(state.valueInputStartDate.split('-')[2]),
+    valueEndDay: (state) => Number(state.valueInputEndDate.split('-')[2]),
     countDay: (state) => state.valueEndDay - state.valueStartDay,
+    filterMedications() {
+      this.searchArrayMedications = this.searchMedications.filter((item) =>
+        item.title
+          .toLowerCase()
+          .includes(this.searchValueMedications.toLowerCase())
+      );
+    },
   },
   actions: {
     showDialogMedications() {
@@ -110,6 +117,9 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
     },
     handleInputMedications(event) {
       this.valueInputMedications = event.target.value;
+    },
+    handleInputSearchMedications(event) {
+      this.searchValueMedications = event.target.value;
     },
     addRecordMedications() {
       if (this.valueInputMedications === '') {
@@ -125,11 +135,7 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
       this.valueOnClickMedications = item;
       this.dialogVisibleMedications = false;
     },
-    filterMedications() {
-      this.searchArray = this.searchNeedles.filter((item) =>
-        item.title.toLowerCase().includes(this.searchValue.toLowerCase())
-      );
-    },
+
     removeMaskMedications(index) {
       this.needToListMedications.splice(index, 1);
     },
@@ -196,7 +202,8 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
         (this.multiplicity = this.valueOnClickMultiplicity),
         (this.startDate = this.valueInputStartDate),
         (this.endDate = this.valueInputEndDate);
-        this.countDayResult = this.countDay;
+      this.countDayResult = this.countDay;
+      this.dialogVisibleRecipe = true;
     },
   },
 });

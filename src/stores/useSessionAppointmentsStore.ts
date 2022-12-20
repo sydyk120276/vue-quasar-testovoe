@@ -161,7 +161,27 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     arrayRecommendations: [],
   }),
 
-  getters: {},
+  getters: {
+    filterCatheter() {
+      this.searchArrayCatheter = this.searchCatheter.filter((item) =>
+        item.title
+          .toLowerCase()
+          .includes(this.searchValueCatheter.toLowerCase())
+      );
+    },
+    filterNeedlessList() {
+      this.searchArrayList = this.searchNeedlesList.filter((item) =>
+        item.title.toLowerCase().includes(this.searchValueList.toLowerCase())
+      );
+    },
+    needlessFilter() {
+      this.searchArray = this.searchNeedles.filter((item) => {
+        return item.title
+          .toLowerCase()
+          .includes(this.searchValue.toLowerCase());
+      });
+    },
+  },
 
   actions: {
     showDialog() {
@@ -172,6 +192,9 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     },
     handleInput(event) {
       this.valueInput = event.target.value;
+    },
+    handleSearchInput(event) {
+      this.searchValue = event.target.value;
     },
     addRecord() {
       if (this.valueInput === '') {
@@ -186,11 +209,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     onClick(item) {
       this.valueOnClick = item;
       this.dialogVisible = false;
-    },
-    needlessFilter() {
-      this.searchArray = this.searchNeedles.filter((item) =>
-        item.title.toLowerCase().includes(this.searchValue.toLowerCase())
-      );
     },
     removeMask(index) {
       this.needToList.splice(index, 1);
@@ -236,6 +254,9 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputNeedlessList(event) {
       this.valueInputList = event.target.value;
     },
+    handleInputSearchNeedlessList(event) {
+      this.searchValueList = event.target.value;
+    },
     addRecordNeedlessList() {
       if (this.valueInputList === '') {
         return;
@@ -249,11 +270,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     onClickNeedlessList(item) {
       this.valueOnClickList = item;
       this.dialogVisibleList = false;
-    },
-    needlessFilterNeedlessList() {
-      this.searchArrayList = this.searchNeedlesList.filter((item) =>
-        item.title.toLowerCase().includes(this.searchValueList.toLowerCase())
-      );
     },
     removeMaskNeedlessList(index) {
       this.needToListList.splice(index, 1);
@@ -306,6 +322,9 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     handleInputCatheter(event) {
       this.valueInputCatheter = event.target.value;
     },
+    handleInputSearchCatheter(event) {
+      this.searchValueCatheter = event.target.value;
+    },
     addRecordCatheter() {
       if (this.valueInputCatheter === '') {
         return;
@@ -320,13 +339,7 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
       this.valueOnClickCatheter = item;
       this.dialogVisibleCatheter = false;
     },
-    needlessFilterCatheter() {
-      this.searchArrayCatheter = this.searchCatheter.filter((item) =>
-        item.title
-          .toLowerCase()
-          .includes(this.searchValueCatheter.toLowerCase())
-      );
-    },
+
     removeCatheter(index) {
       this.needToListCatheter.splice(index, 1);
     },
