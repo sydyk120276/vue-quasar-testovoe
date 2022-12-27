@@ -114,7 +114,7 @@
         {{ sessionHomeTreatmentStore.medications }}
         {{ sessionHomeTreatmentStore.receivingPath }}
         {{ sessionHomeTreatmentStore.doses }}
-        {{ sessionHomeTreatmentStore.dosesValue }}</span
+      </span
       >
       <span class="text-[8px] font-semibold"
         >

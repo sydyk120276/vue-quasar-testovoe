@@ -15,12 +15,26 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     voluemAnticoagulation: '',
     weigth: '',
 
+    nameButtons: [
+      {
+        title: 'HD',
+        id: 1,
+      },
+      {
+        title: 'HDF',
+        id: 2,
+      },
+      {
+        title: 'UF',
+        id: 3,
+      },
+    ],
+
     dialogVisible: false,
     valueInput: '',
     searchValue: '',
     needToList: [],
     valueOnClick: '',
-    searchArray: [],
     allArray: [],
     searchNeedles: [
       {
@@ -69,7 +83,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     searchValueList: '',
     needToListList: [],
     valueOnClickList: '',
-    searchArrayList: [],
     searchNeedlesList: [
       {
         title: 'Венозные',
@@ -113,7 +126,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     searchValueCatheter: '',
     needToListCatheter: [],
     valueOnClickCatheter: '',
-    searchArrayCatheter: [],
     searchCatheter: [
       {
         title: 'Катетер №1',
@@ -162,25 +174,19 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
   }),
 
   getters: {
-    filterCatheter() {
-      this.searchArrayCatheter = this.searchCatheter.filter((item) =>
+      searchArrayCatheter: (state) => state.searchCatheter.filter((item) =>
         item.title
           .toLowerCase()
-          .includes(this.searchValueCatheter.toLowerCase())
-      );
-    },
-    filterNeedlessList() {
-      this.searchArrayList = this.searchNeedlesList.filter((item) =>
-        item.title.toLowerCase().includes(this.searchValueList.toLowerCase())
-      );
-    },
-    needlessFilter() {
-      this.searchArray = this.searchNeedles.filter((item) => {
-        return item.title
+          .includes(state.searchValueCatheter.toLowerCase())
+      ),
+     searchArrayList: (state) => state.searchNeedlesList.filter((item) =>
+        item.title.toLowerCase().includes(state.searchValueList.toLowerCase())
+      ),
+      searchArray: (state) => state.searchNeedles.filter((item) =>
+        item.title
           .toLowerCase()
-          .includes(this.searchValue.toLowerCase());
-      });
-    },
+          .includes(state.searchValue.toLowerCase())
+      )
   },
 
   actions: {
@@ -373,9 +379,6 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     },
     handleInputAnticoagulationVolume(event) {
       this.valueAnticoagulation = event.target.value;
-    },
-    handleInputAnticoagulation(event) {
-      this.valueInputAnticoagulation = event.target.value;
     },
     onClickAnticoagulation(item) {
       this.valueOnClickAnticoagulation = item;

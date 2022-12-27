@@ -20,13 +20,13 @@ export const useSessionAfterAppointmentsStore = defineStore(
       valueEndDay: 0,
       countDay: 0,
       countDayResult: 0,
+      homeResept: [],
 
       dialogVisibleMedications: false,
       valueInputMedications: '',
       searchValueMedications: '',
       needToListMedications: [],
       valueOnClickMedications: '',
-      searchArrayMedications: [],
       allArrayMedications: [],
       searchMedications: [
         {
@@ -87,13 +87,12 @@ export const useSessionAfterAppointmentsStore = defineStore(
       valueStartDay: (state) => Number(state.valueInputStartDate.split('-')[2]),
       valueEndDay: (state) => Number(state.valueInputEndDate.split('-')[2]),
       countDay: (state) => state.valueEndDay - state.valueStartDay,
-      filterMedications() {
-        this.searchArrayMedications = this.searchMedications.filter((item) =>
+      searchArrayMedications: (state) =>
+        state.searchMedications.filter((item) =>
           item.title
             .toLowerCase()
-            .includes(this.searchValueMedications.toLowerCase())
-        );
-      },
+            .includes(state.searchValueMedications.toLowerCase())
+        ),
     },
 
     actions: {
@@ -165,15 +164,21 @@ export const useSessionAfterAppointmentsStore = defineStore(
       handleInputEndDate(event) {
         this.valueInputEndDate = event.target.value;
       },
+      removeResept(index) {
+        this.homeResept.splice(index, 1);
+      },
 
       formButtonAfterSession() {
-        (this.medications = this.valueOnClickMedications),
-          (this.receivingPath = this.valueOnClickReceivingPath),
-          (this.doses = this.valueInputDoses),
-          (this.dosesValue = this.valueOnClickDoses),
-          (this.startDate = this.valueInputStartDate),
-          (this.endDate = this.valueInputEndDate),
-          (this.countDayResult = this.countDay);
+        this.homeResept.push({
+          medications: this.valueOnClickMedications,
+          receivingPath: this.valueOnClickReceivingPath,
+          doses: this.valueInputDoses,
+          dosesValue: this.valueOnClickDoses,
+          startDate: this.valueInputStartDate,
+          endDate: this.valueInputEndDate,
+          countDayResult: this.countDay,
+          id: Math.random(),
+        });
       },
     },
   }

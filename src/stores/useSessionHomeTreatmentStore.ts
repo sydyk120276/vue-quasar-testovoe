@@ -100,13 +100,11 @@ export const useSessionHomeTreatmentStore = defineStore('session-home-treatment'
     valueStartDay: (state) => Number(state.valueInputStartDate.split('-')[2]),
     valueEndDay: (state) => Number(state.valueInputEndDate.split('-')[2]),
     countDay: (state) => state.valueEndDay - state.valueStartDay,
-    filterMedications() {
-      this.searchArrayMedications = this.searchMedications.filter((item) =>
+    searchArrayMedications: (state) => state.searchMedications.filter((item) =>
         item.title
           .toLowerCase()
-          .includes(this.searchValueMedications.toLowerCase())
-      );
-    },
+          .includes(state.searchValueMedications.toLowerCase())
+      )
   },
   actions: {
     showDialogMedications() {
