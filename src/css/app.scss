@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+  @apply border w-[63px] h-[20px] flex justify-center items-center text-[8px] font-semibold border-green-300 text-green-500
+}

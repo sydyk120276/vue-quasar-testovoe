@@ -14,6 +14,8 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
     anticoagulation: '',
     voluemAnticoagulation: '',
     weigth: '',
+    active_el: 0,
+    namePrograms: '',
 
     nameButtons: [
       {
@@ -27,6 +29,16 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
       {
         title: 'UF',
         id: 3,
+      },
+    ],
+    nameInjectionButtons: [
+      {
+        title: 'ИГЛА',
+        id: 1,
+      },
+      {
+        title: 'КАТЕТЕР',
+        id: 2,
       },
     ],
 
@@ -174,22 +186,27 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
   }),
 
   getters: {
-      searchArrayCatheter: (state) => state.searchCatheter.filter((item) =>
+    searchArrayCatheter: (state) =>
+      state.searchCatheter.filter((item) =>
         item.title
           .toLowerCase()
           .includes(state.searchValueCatheter.toLowerCase())
       ),
-     searchArrayList: (state) => state.searchNeedlesList.filter((item) =>
+    searchArrayList: (state) =>
+      state.searchNeedlesList.filter((item) =>
         item.title.toLowerCase().includes(state.searchValueList.toLowerCase())
       ),
-      searchArray: (state) => state.searchNeedles.filter((item) =>
-        item.title
-          .toLowerCase()
-          .includes(state.searchValue.toLowerCase())
-      )
+    searchArray: (state) =>
+      state.searchNeedles.filter((item) =>
+        item.title.toLowerCase().includes(state.searchValue.toLowerCase())
+      ),
   },
 
   actions: {
+    activate(elId, elTitle) {
+      this.active_el = elId,
+      this.namePrograms = elTitle
+    },
     showDialog() {
       this.dialogVisible = true;
     },

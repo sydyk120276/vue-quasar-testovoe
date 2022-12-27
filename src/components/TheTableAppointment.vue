@@ -7,7 +7,7 @@
           <div class="flex">
             <div class="flex pb-[7px]">
              <AppointmentIcon />
-              <span class="text-[8px] font-semibold pl-[7px]">- Программа - <span class="text-blue-400">HD</span></span>
+              <span class="text-[8px] font-semibold pl-[7px]">- Программа - <span class="text-blue-400">{{ sessionAppointmentsStore.namePrograms }}</span></span>
             </div>
             <div class="flex pl-[15px] pb-[7px]">
             <DializatorIcon />
@@ -32,7 +32,7 @@
             <div class="flex pb-[7px]">
              <BicorbanageIcon />
               <span class="text-[8px] font-semibold pl-[7px]"
-                >- Бикорбанат - <span class="text-blue-400">{{ sessionAppointmentsStore.bicorbanat }}</span> <span class="text-blue-400"> {{ sessionAppointmentsStore.typeBicorbanat }}</span></span
+                >- Бикорбанат - <span class="text-blue-400">{{ sessionAppointmentsStore.bicorbanat }}</span></span
               >
             </div>
           </div>

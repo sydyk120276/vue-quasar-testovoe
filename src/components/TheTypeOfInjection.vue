@@ -2,12 +2,7 @@
       <div class=" ">
         <span class="text-[8px] font-semibold">Тип инъекции</span>
         <div class="flex justify-between w-[133px] pt-[18px] pb-[14px]">
-          <TheTypeOfInjectionButton
-            v-for="nameButton in nameButtons"
-            :key="nameButton"
-            :nameButton="nameButton"
-            :is-active="nameButton === 'Катетер'"
-           />
+          <TheTypeOfInjectionButton/>
         </div>
       </div>
       <div>
@@ -37,7 +32,6 @@ export default {
     data() {
         const sessionAppointmentsStore = useSessionAppointmentsStore()
     return {
-      nameButtons: ['Игла', 'Катетер'],
       sessionAppointmentsStore
 
     };
