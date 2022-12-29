@@ -21,6 +21,39 @@ export const useSessionAfterAppointmentsStore = defineStore(
       countDay: 0,
       countDayResult: 0,
       homeResept: [],
+      active_el: 0,
+      sessionNumber: 0,
+
+      sessionNumberButtons: [
+        {
+          title: 1,
+          id: 1,
+        },
+        {
+          title: 2,
+          id: 2,
+        },
+        {
+          title: 3,
+          id: 3,
+        },
+        {
+          title: 4,
+          id: 4,
+        },
+        {
+          title: 5,
+          id: 5,
+        },
+        {
+          title: 6,
+          id: 6,
+        },
+        {
+          title: 7,
+          id: 7,
+        },
+      ],
 
       dialogVisibleMedications: false,
       valueInputMedications: '',
@@ -96,6 +129,9 @@ export const useSessionAfterAppointmentsStore = defineStore(
     },
 
     actions: {
+      activate(elId, elTitle) {
+        (this.active_el = elId), (this.sessionNumber = elTitle);
+      },
       showDialogMedications() {
         this.dialogVisibleMedications = true;
       },
@@ -177,6 +213,7 @@ export const useSessionAfterAppointmentsStore = defineStore(
           startDate: this.valueInputStartDate,
           endDate: this.valueInputEndDate,
           countDayResult: this.countDay,
+          sessionNumbers: this.sessionNumber,
           id: Math.random(),
         });
       },

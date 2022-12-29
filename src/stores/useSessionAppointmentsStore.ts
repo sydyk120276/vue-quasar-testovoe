@@ -31,6 +31,7 @@ export const useSessionAppointmentsStore = defineStore('session-appointments', {
         id: 3,
       },
     ],
+
     nameInjectionButtons: [
       {
         title: 'ИГЛА',

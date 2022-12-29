@@ -6,3 +6,6 @@
 .active {
   @apply border w-[63px] h-[20px] flex justify-center items-center text-[8px] font-semibold border-green-300 text-green-500
 }
+.activeSessionNumber {
+  @apply border bg-blue-500 text-white w-[23px] h-[20px] text-[9px] justify-center flex items-center
+}

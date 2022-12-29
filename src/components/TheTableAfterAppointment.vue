@@ -23,7 +23,7 @@
                 <th class="border">{{ mask.doses }}</th>
                 <th class="border">{{ mask.startDate }}</th>
                 <th class="border">{{ mask.endDate }}</th>
-                <th class="border">1,2,3</th>
+                <th class="border">{{ mask.sessionNumbers }}</th>
                 <th class="border">{{ mask.countDayResult }}</th>
                 <th class="border pl-[7px] ">
                   <button
