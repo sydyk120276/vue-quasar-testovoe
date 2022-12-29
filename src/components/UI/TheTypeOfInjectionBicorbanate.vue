@@ -1,12 +1,15 @@
 <template lang="">
-        <div>
+        <div >
           <span class="text-[8px] font-semibold pb-[7px]">Бикорбанат</span>
+          <div class="relative">
           <input type="text"
-            class="border border-gray-300 pl-[10px] text-[8px] font-semibold w-[78px] h-[20px] flex items-center justify-center outline-none pl-[15px] "
+            class=" border border-gray-300 pl-[10px] text-[8px] font-semibold w-[78px] h-[20px] flex items-center justify-center outline-none pl-[15px] "
             placeholder="XXX гр / л"
              @input="sessionAppointmentsStore.handleInputBicorbanate"
-             :value="sessionAppointmentsStore.valueOnClickBicorbanate"
+             :value="sessionAppointmentsStore.valueInputBicorbanate"
           />
+          <span class="absolute text-[7px] font-semibold top-[4px] right-[5px]">{{ sessionAppointmentsStore.valueOnClickBicorbanate }}</span>
+          </div>
           </div>
         <button
           class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"

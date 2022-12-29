@@ -36,12 +36,15 @@
           <div class="w-[135px] flex flex-col">
             <span class="text-[8px] font-semibold pb-[7px]">Дозировка</span>
             <div class="w-[123px] flex justify-between pb-[7px]">
+              <div class="relative">
               <input type="text"
                 class="border border-gray-300 text-[8px] font-semibold w-[95px] h-[20px] flex items-center justify-start outline-none pl-[15px] "
                 placeholder="Спр.Дозы препаратов"
                 @input="sessionAfterAppointmentsStore.handleInputDoses"
-                :value="sessionAfterAppointmentsStore.valueOnClickDoses"
+                :value="sessionAfterAppointmentsStore.valueInputDoses"
               />
+               <span class="absolute text-[7px] font-semibold top-[4px] right-[15px]">{{ sessionAfterAppointmentsStore.valueOnClickDoses }}</span>
+               </div>
               <button
                 class="border border-gray-300 w-[23px] h-[20px] justify-center flex items-center"
               >

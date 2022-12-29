@@ -32,7 +32,7 @@
             <div class="flex pb-[7px]">
              <BicorbanageIcon />
               <span class="text-[8px] font-semibold pl-[7px]"
-                >- Бикорбанат - <span class="text-blue-400">{{ sessionAppointmentsStore.bicorbanat }}</span></span
+                >- Бикорбанат - <span class="text-blue-400">{{ sessionAppointmentsStore.bicorbanat }} {{ sessionAppointmentsStore.typeBicorbanat }}</span></span
               >
             </div>
           </div>

@@ -20,7 +20,7 @@
               <tr v-for="(mask) in sessionAfterAppointmentsStore.homeResept" :key="mask.id" class="text-[6px] font-semibold">
                 <th class="border">{{ mask.medications }} </th>
                 <th class="border">{{ mask.receivingPath }}</th>
-                <th class="border">{{ mask.doses }}</th>
+                <th class="border">{{ mask.doses }} {{ mask.dosesValue }}</th>
                 <th class="border">{{ mask.startDate }}</th>
                 <th class="border">{{ mask.endDate }}</th>
                 <th class="border">{{ mask.sessionNumbers }}</th>
